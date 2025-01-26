@@ -1,8 +1,12 @@
+import "bootstrap/dist/css/bootstrap.min.css"
 import './style.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import "bootstrap/dist/css/bootstrap.min.css";
-import Home from './Home';
+import Home from './home';
+import Header from './header';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Notfound from './notfound';
+import Food from './food';
 
 export default function App() {
   const [products, setProducts] = useState([]);
@@ -16,8 +20,14 @@ export default function App() {
   }, [])
   return (
     <div>
-      <Home products={products} />
+      <BrowserRouter>
+         <Header />
+        <Routes>
+          <Route index path="/" element={<Home products={products}/>}/>
+          <Route path="*" element={<Notfound />}/>
+          <Route path="/food" element={<Food products={products}/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   )
-
 }

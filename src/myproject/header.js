@@ -7,10 +7,10 @@ export default function Header() {
         <h1 className="h3 m-0">My Clothing Store</h1>
         <nav>
           <Link to="/" className="text-white text-decoration-none mx-2">Home</Link>
-          <Link to="/women" className="text-white text-decoration-none mx-2">Women Clothing</Link>
-          <Link to="/men" className="text-white text-decoration-none mx-2">Men Clothing</Link>
-          <Link to="/kids" className="text-white text-decoration-none mx-2">Kids Clothing</Link>
-          <Link to="/cart" className="text-white text-decoration-none mx-2">Cart</Link>
+          <Link to="/food" className="text-white text-decoration-none mx-2">food</Link>
+          <Link to="/fragrances" className="text-white text-decoration-none mx-2">fragrances</Link>
+          <Link to="/furniture" className="text-white text-decoration-none mx-2">furniture</Link>
+          <Link to="/beauty" className="text-white text-decoration-none mx-2">beauty</Link>
         </nav>
       </div>
     </header>

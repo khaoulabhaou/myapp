@@ -6,14 +6,18 @@ import Home from './home';
 import Header from './header';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Notfound from './notfound';
-import Food from './food';
-
+import Groceries from './groceries';
+import { useDispatch } from 'react-redux'; 
+import Furniture from "./furniture";
+import Fragrances from "./fragrances";
+import Beauty from "./beauty";
 export default function App() {
   const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
   useEffect(() => {
     axios
       .get("https://dummyjson.com/products")
-      .then((response) => setProducts(response.data.products))
+      .then((response) => {dispatch(setProducts(response.data.products))})
       .catch((error) => {
         console.error("Error: ", error)
       })
@@ -23,11 +27,14 @@ export default function App() {
       <BrowserRouter>
          <Header />
         <Routes>
-          <Route index path="/" element={<Home products={products}/>}/>
-          <Route path="*" element={<Notfound />}/>
-          <Route path="/food" element={<Food products={products}/>}/>
+          <Route index path = "/" element = {<Home products={products} />}/>
+          <Route path = "*" element = {<Notfound />}/>
+          <Route path = "/groceries" element = { <Groceries products = {products} />}/>
+          <Route path = "/furniture" element = { <Furniture products = {products} /> }/>
+          <Route path = "/fragrances" element = { <Fragrances products = {products} />}/>
+          <Route path="/beauty" element={ <Beauty products={products} />}/>
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> 
     </div>
   )
 }

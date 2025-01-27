@@ -1,15 +1,15 @@
-import { useSelector } from "react-redux"
 import Display from "./display"
 
-export default function Furniture() {    
-  const products = useSelector(data=>data.products)
+export default function Furniture(props) {    
   return(
     <div>
-
-      {products.filter((product)=>{
-        product.category == "furniture"
-      }).map((product,i)=>{
-        <Display product = {product} key = {i}/>
+    {
+      props.products.filter((product)=>{
+        return product.category === "furniture"
+        }).map((product,i)=>{
+        return (
+          <Display product = {product} key = {i}/>
+        )
       })
     }
     </div>

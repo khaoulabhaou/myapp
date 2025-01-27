@@ -1,11 +1,11 @@
 import Display from "./display"
 
-export default function Food(props) {    
+export default function Groceries(props) {    
   return(
     <div>
       {
           props.products.filter((product) =>{
-           return product.category === "food"
+           return product.category === "groceries"
           }).map((product,i)=>{
             return (         
               <Display product = {product} key = {i}/>

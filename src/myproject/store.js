@@ -1,13 +1,9 @@
 // store.js
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-  products: [], // Initial state for products
-};
-
 const productSlice = createSlice({
   name: 'products',
-  initialState,
+  initialState : { list : [] },
   reducers: {
     setProducts(state, action) {
       state.products = action.payload;
